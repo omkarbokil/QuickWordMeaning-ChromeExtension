@@ -1,0 +1,31 @@
+{
+    "name": "Quick Word Meaning",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Select text using double click on web page and open extension, you will see meaning and other info of the selected word",
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "32": "icon32.png",
+        "16": "icon16.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Open"
+    },
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["contentscript.js"]
+    }]
+}
